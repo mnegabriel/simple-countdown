@@ -6,14 +6,34 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simple Counter</title>
-  
-  <link rel="stylesheet" href="/styles/reset.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
   </head>
 
 <body>
-  <div id="app"></div>
-  <script type="module" src="/scripts/main.js"></script>
+  <main>
+    <h1>Simple Counter test</h1>
+  
+    <form x-data="form" @submit.prevent="handleSubmit">
+      <input type="text" name="name" id="name" required />
+      <input type="date" name="date" id="date" required :min="minDate" />
+      <input type="time" name="time" id="time" required />
+      <input type="submit" value="adicionar" />
+    </form>
+  
+    <ul class="list" x-data="datesListing">
+      <template x-for="date in test">
+        <li>
+          <p x-text="date.name"></p>
+          <p x-text="date.date"></p>
+          <p x-text="date.time"></p>
+          <p x-text="date.days + ' days'"></p>
+          <p x-text="date.clock"></p>
+          <button @click="$store.dates.delete(date.id)">&times;</button>
+        </li>
+      </template>
+    </ul>
+  </main>
+  
+  <script type="module" src="/src/main.js"></script>
   </body>
 
 </html>
