@@ -1,5 +1,6 @@
 {
-  "name": "simple-counter",
+  "name": "simple-countdown",
+  "description": "A simple countdown app to envision important dates approaching ",
   "private": true,
   "version": "0.0.0",
   "scripts": {
